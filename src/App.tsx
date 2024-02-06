@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Nav, Navbar, Container } from 'react-bootstrap';
-import ArtworkShowcase from "./components/ArtworkShowcase";
-import AchievementGallery from "./components/AchievementGallery";
-import Blog from "./components/Blog";
-import About from "./components/About";
-import Games from "./components/Games";
-import EducationCorner from "./components/EducationCorner";
-import Comments from "./components/Comments";
+import ArtworkShowcase from "./components/ArtworkShowcase/ArtworkShowcase";
+import AchievementGallery from "./components/AchievementsGallery/AchievementGallery";
+import Blog from "./components/Blog/Blog";
+import About from "./components/About/About";
+import Games from "./components/Games/Games";
+import EducationCorner from "./components/EducationCorner/EducationCorner";
+import Comments from "./components/Comments/Comments";
+import AchievementsGallery from "./components/AchievementsGallery/AchievementGallery";
 
 const App = () => {
     return (

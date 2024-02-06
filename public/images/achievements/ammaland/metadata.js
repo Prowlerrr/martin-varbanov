@@ -1,6 +1,6 @@
 export default {
     groupMetadata: {
-        groupName: "Ammaland",
+        groupName: "Аммаланд",
         description: "This is a description for the Ammaland achievement group.",
     },
     imagesMetadata: [

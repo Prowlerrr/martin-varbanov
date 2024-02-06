@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './AchievementGallery.css';   // assuming you have an associated css file
 
 // @ts-ignore
 declare let require: any;
@@ -23,7 +24,19 @@ interface ImageData {
 
 const AchievementsGallery: React.FC = () => {
     const [imagesData, setImagesData] = useState<ImageData[]>([]);
-    const groupContext = require.context("../../public/images/achievements", true, /^(.*\.(jpg|png|gif|js))$/i);
+    const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
+    const [selectedDescription, setSelectedDescription] = useState<string | undefined>(undefined);
+    const groupContext = require.context("../../../public/images/achievements", true, /^(.*\.(jpg|png|gif|js))$/i);
+
+    function openModal(imageUrl: string, description: string | undefined) {
+        setSelectedImage(imageUrl);
+        setSelectedDescription(description);
+    }
+
+    function closeModal() {
+        setSelectedImage(undefined);
+        setSelectedDescription(undefined);
+    }
 
     useEffect(() => {
         let tempImagesData: ImageData[] = [];
@@ -60,13 +73,13 @@ const AchievementsGallery: React.FC = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Achievements Gallery</h2>
+        <div className="gallery">
+            <h2 className="gallery-title">Achievements Gallery</h2>
             {imagesData.map((group: ImageData) =>
-                <div>
-                    <h3>{group.groupMetadata?.groupName}</h3>
-                    <p>{group.groupMetadata?.description}</p>
-                    <table>
+                <div className="group">
+                    <h3 className="group-name">{group.groupMetadata?.groupName}</h3>
+                    <p className="group-description">{group.groupMetadata?.description}</p>
+                    <table className="table">
                         <thead>
                         <tr>
                             <th>Thumbnail</th>
@@ -81,8 +94,13 @@ const AchievementsGallery: React.FC = () => {
 
                             return (
                                 <tr key={imageFileName}>
-                                    <td>
-                                        <img src={imageUrl} alt={metadata?.description} style={{ width: "100px" }} />
+                                    <td className="thumbnail-cell">
+                                        <img
+                                            src={imageUrl}
+                                            alt={metadata?.description}
+                                            onClick={() => openModal(imageUrl, metadata?.description)}
+                                            className="thumbnail"
+                                        />
                                     </td>
                                     <td>{metadata?.description}</td>
                                 </tr>
@@ -90,6 +108,17 @@ const AchievementsGallery: React.FC = () => {
                         })}
                         </tbody>
                     </table>
+                </div>
+            )}
+            {selectedImage && (
+                <div
+                    className="modal"
+                    onClick={closeModal}
+                >
+                    <div className="modal-content">
+                        <h2>{selectedDescription}</h2>
+                        <img src={selectedImage} alt={selectedDescription} className="modal-image" />
+                    </div>
                 </div>
             )}
         </div>
