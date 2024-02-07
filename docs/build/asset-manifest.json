@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.e6076259.css",
-    "main.js": "/static/js/main.de4c3669.js",
-    "static/js/592.124d5b65.chunk.js": "/static/js/592.124d5b65.chunk.js",
-    "static/media/2023-12-09_115886_edit_431909828395031.jpg": "/static/media/2023-12-09_115886_edit_431909828395031.dfd52ae086bf3dca5edf.jpg",
-    "static/media/Screenshot from 2023-03-30 13-47-08.png": "/static/media/Screenshot from 2023-03-30 13-47-08.87c5e6a403ed27ea31a0.png",
-    "static/media/2023-12-09_115956_edit_431918494828363.jpg": "/static/media/2023-12-09_115956_edit_431918494828363.b9aac3e3494d41034af2.jpg",
-    "static/media/IMG_20231219_134429.jpg": "/static/media/IMG_20231219_134429.c3db141767d80c6350df.jpg",
-    "static/media/Screenshot from 2023-03-30 13-46-46.png": "/static/media/Screenshot from 2023-03-30 13-46-46.db29af374f3e2f5091a2.png",
-    "static/media/Screenshot from 2023-03-30 13-46-33.png": "/static/media/Screenshot from 2023-03-30 13-46-33.d2a851f2f7746ed0db3d.png",
-    "static/media/Screenshot from 2023-03-30 13-47-14.png": "/static/media/Screenshot from 2023-03-30 13-47-14.8f72cab281c8b69dbee2.png",
-    "static/media/Screenshot from 2023-03-30 13-46-52.png": "/static/media/Screenshot from 2023-03-30 13-46-52.743f60a12cb279345e93.png",
-    "static/media/Screenshot from 2023-03-30 13-46-59.png": "/static/media/Screenshot from 2023-03-30 13-46-59.c23c43e0520d77f8c987.png",
-    "index.html": "/index.html",
-    "main.e6076259.css.map": "/static/css/main.e6076259.css.map",
-    "main.de4c3669.js.map": "/static/js/main.de4c3669.js.map",
-    "592.124d5b65.chunk.js.map": "/static/js/592.124d5b65.chunk.js.map"
+    "main.css": "/martin-varbanov/static/css/main.2dbf8559.css",
+    "main.js": "/martin-varbanov/static/js/main.21c485a2.js",
+    "static/js/592.124d5b65.chunk.js": "/martin-varbanov/static/js/592.124d5b65.chunk.js",
+    "static/media/2023-12-09_115886_edit_431909828395031.jpg": "/martin-varbanov/static/media/2023-12-09_115886_edit_431909828395031.dfd52ae086bf3dca5edf.jpg",
+    "static/media/Screenshot from 2023-03-30 13-47-08.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-47-08.87c5e6a403ed27ea31a0.png",
+    "static/media/2023-12-09_115956_edit_431918494828363.jpg": "/martin-varbanov/static/media/2023-12-09_115956_edit_431918494828363.b9aac3e3494d41034af2.jpg",
+    "static/media/IMG_20231219_134429.jpg": "/martin-varbanov/static/media/IMG_20231219_134429.c3db141767d80c6350df.jpg",
+    "static/media/Screenshot from 2023-03-30 13-46-46.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-46-46.db29af374f3e2f5091a2.png",
+    "static/media/Screenshot from 2023-03-30 13-46-33.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-46-33.d2a851f2f7746ed0db3d.png",
+    "static/media/Screenshot from 2023-03-30 13-47-14.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-47-14.8f72cab281c8b69dbee2.png",
+    "static/media/Screenshot from 2023-03-30 13-46-52.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-46-52.743f60a12cb279345e93.png",
+    "static/media/Screenshot from 2023-03-30 13-46-59.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-46-59.c23c43e0520d77f8c987.png",
+    "index.html": "/martin-varbanov/index.html",
+    "main.2dbf8559.css.map": "/martin-varbanov/static/css/main.2dbf8559.css.map",
+    "main.21c485a2.js.map": "/martin-varbanov/static/js/main.21c485a2.js.map",
+    "592.124d5b65.chunk.js.map": "/martin-varbanov/static/js/592.124d5b65.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6076259.css",
-    "static/js/main.de4c3669.js"
+    "static/css/main.2dbf8559.css",
+    "static/js/main.21c485a2.js"
   ]
 }

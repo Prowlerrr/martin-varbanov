@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ArtworkShowcase.css';
 
 // @ts-ignore
 declare let require: any;
@@ -19,9 +20,11 @@ const ArtworkShowcase: React.FC = () => {
     return (
         <div>
             <h2>Галерия</h2>
-            {images.map((image: string, index: number) => (
-                <img key={index} src={image} className="artwork" alt="Artwork" />
-            ))}
+            <div className="image-gallery">
+                {images.map((image: string, index: number) => (
+                    <img key={index} src={image} className="artwork" alt="Artwork" />
+                ))}
+            </div>
         </div>
     );
 };
