@@ -16,7 +16,7 @@ const App = () => {
                 <Navbar bg="light" variant="light" className="justify-content-center">
                     <Nav className="mr-auto justify-content-center" style={{maxWidth: '800px'}}>
                         <Nav.Link as={Link} to="/" className="mx-3">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/achievements" className="mx-3">Achievements Gallery</Nav.Link>
+                        <Nav.Link as={Link} to="/achievements" className="mx-3">Постижения</Nav.Link>
                         <Nav.Link as={Link} to="/artwork" className="mx-3">Artwork Showcase</Nav.Link>
                         <Nav.Link as={Link} to="/games" className="mx-3">Games</Nav.Link>
                         <Nav.Link as={Link} to="/education" className="mx-3">Education Corner</Nav.Link>

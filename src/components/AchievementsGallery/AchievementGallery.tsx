@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './AchievementGallery.css';   // assuming you have an associated css file
+import './AchievementGallery.css';
 
 // @ts-ignore
 declare let require: any;
@@ -38,6 +38,22 @@ const AchievementsGallery: React.FC = () => {
         setSelectedDescription(undefined);
     }
 
+    // The listener for the 'keydown' event
+    useEffect(() => {
+        const escapeKeyListener = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        };
+        window.addEventListener('keydown', escapeKeyListener);
+
+        // cleanup, remove the listener when the component unmounts
+        return () => {
+            window.removeEventListener('keydown', escapeKeyListener);
+        }
+    }, []);  // add this just below your other useEffect
+
+    // The rest of your useEffect function...
     useEffect(() => {
         let tempImagesData: ImageData[] = [];
 
@@ -72,9 +88,11 @@ const AchievementsGallery: React.FC = () => {
         setImagesData(tempImagesData);
     }, []);
 
+    // The rest of your AchievementsGallery component...
+
     return (
         <div className="gallery">
-            <h2 className="gallery-title">Achievements Gallery</h2>
+            <h2 className="gallery-title">Постижения</h2>
             {imagesData.map((group: ImageData) =>
                 <div className="group">
                     <h3 className="group-name">{group.groupMetadata?.groupName}</h3>
