@@ -8,6 +8,8 @@ import Games from "./components/Games/Games";
 import EducationCorner from "./components/EducationCorner/EducationCorner";
 import Comments from "./components/Comments/Comments";
 import AchievementsGallery from "./components/AchievementsGallery/AchievementGallery";
+import { LanguageSwitcher } from './components/LanguageSwitcher/LanguageSwitcher';
+import i18n from './i18n';
 
 const App = () => {
     return (
@@ -24,6 +26,7 @@ const App = () => {
                         <Nav.Link as={Link} to="/blog" className="mx-3">Blog</Nav.Link>
                         <Nav.Link as={Link} to="/about" className="mx-3">About</Nav.Link>
                     </Nav>
+                    <LanguageSwitcher style={{ marginLeft: 20 , width: "60px"}} />
                 </Navbar>
                 <Container className='d-flex justify-content-center'>
                     <Routes>

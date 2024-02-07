@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './AchievementGallery.css';
+import { useTranslation } from 'react-i18next';
 
-// @ts-ignore
 declare let require: any;
 
 interface Metadata {
@@ -28,6 +28,8 @@ const AchievementsGallery: React.FC = () => {
     const [selectedDescription, setSelectedDescription] = useState<string | undefined>(undefined);
     const groupContext = require.context("../../../public/images/achievements", true, /^(.*\.(jpg|png|gif|js))$/i);
 
+    const { t } = useTranslation();
+
     function openModal(imageUrl: string, description: string | undefined) {
         setSelectedImage(imageUrl);
         setSelectedDescription(description);
@@ -38,7 +40,6 @@ const AchievementsGallery: React.FC = () => {
         setSelectedDescription(undefined);
     }
 
-    // The listener for the 'keydown' event
     useEffect(() => {
         const escapeKeyListener = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
@@ -47,13 +48,11 @@ const AchievementsGallery: React.FC = () => {
         };
         window.addEventListener('keydown', escapeKeyListener);
 
-        // cleanup, remove the listener when the component unmounts
         return () => {
             window.removeEventListener('keydown', escapeKeyListener);
         }
-    }, []);  // add this just below your other useEffect
+    }, []);
 
-    // The rest of your useEffect function...
     useEffect(() => {
         let tempImagesData: ImageData[] = [];
 
@@ -88,11 +87,9 @@ const AchievementsGallery: React.FC = () => {
         setImagesData(tempImagesData);
     }, []);
 
-    // The rest of your AchievementsGallery component...
-
     return (
         <div className="gallery">
-            <h2 className="gallery-title">Постижения</h2>
+            <h2 className="gallery-title">{t('Achievements')}</h2>
             {imagesData.map((group: ImageData) =>
                 <div className="group">
                     <h3 className="group-name">{group.groupMetadata?.groupName}</h3>
@@ -100,8 +97,8 @@ const AchievementsGallery: React.FC = () => {
                     <table className="table">
                         <thead>
                         <tr>
-                            <th>Thumbnail</th>
-                            <th>Description</th>
+                            <th>{t('Thumbnail')}</th>
+                            <th>{t('Description')}</th>
                         </tr>
                         </thead>
                         <tbody>
