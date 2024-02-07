@@ -15,6 +15,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ style }) => 
         return null;
     }
 
+
     return (
         <div className="language-switcher" style={style} onClick={() => setShowOptions(!showOptions)}>
             {i18n.language.startsWith('bg') ? <BulgarianFlag /> : <AmericanFlag />}
