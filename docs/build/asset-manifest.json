@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/martin-varbanov/static/css/main.2dbf8559.css",
-    "main.js": "/martin-varbanov/static/js/main.21c485a2.js",
+    "main.js": "/martin-varbanov/static/js/main.d1b8dca5.js",
     "static/js/592.124d5b65.chunk.js": "/martin-varbanov/static/js/592.124d5b65.chunk.js",
     "static/media/2023-12-09_115886_edit_431909828395031.jpg": "/martin-varbanov/static/media/2023-12-09_115886_edit_431909828395031.dfd52ae086bf3dca5edf.jpg",
     "static/media/Screenshot from 2023-03-30 13-47-08.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-47-08.87c5e6a403ed27ea31a0.png",
@@ -13,12 +13,13 @@
     "static/media/Screenshot from 2023-03-30 13-46-52.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-46-52.743f60a12cb279345e93.png",
     "static/media/Screenshot from 2023-03-30 13-46-59.png": "/martin-varbanov/static/media/Screenshot from 2023-03-30 13-46-59.c23c43e0520d77f8c987.png",
     "index.html": "/martin-varbanov/index.html",
+    "static/media/getFetch.cjs": "/martin-varbanov/static/media/getFetch.40f37ddea2378391108f.cjs",
     "main.2dbf8559.css.map": "/martin-varbanov/static/css/main.2dbf8559.css.map",
-    "main.21c485a2.js.map": "/martin-varbanov/static/js/main.21c485a2.js.map",
+    "main.d1b8dca5.js.map": "/martin-varbanov/static/js/main.d1b8dca5.js.map",
     "592.124d5b65.chunk.js.map": "/martin-varbanov/static/js/592.124d5b65.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2dbf8559.css",
-    "static/js/main.21c485a2.js"
+    "static/js/main.d1b8dca5.js"
   ]
 }
