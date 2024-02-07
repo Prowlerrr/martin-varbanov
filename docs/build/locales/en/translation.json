@@ -1,5 +1,15 @@
 {
-  "Achievements": "Achievements",
+  "nav": {
+    "home": "Home",
+    "achievements": "Achievements",
+    "artwork": "Artwork",
+    "games": "Games",
+    "education": "Education Corner",
+    "comments": "Comments",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "homepage": "Home Page",
   "Thumbnail": "Thumbnail",
   "Description": "Description"
 }

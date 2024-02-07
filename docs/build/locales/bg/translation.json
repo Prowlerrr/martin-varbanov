@@ -1,5 +1,15 @@
 {
-  "Achievements": "Постижения",
+  "nav": {
+    "home": "Начало",
+    "achievements": "Постижения",
+    "artwork": "Галерия",
+    "games": "Игри",
+    "education": "Учебен ъгъл",
+    "comments": "Коментари",
+    "blog": "Блог",
+    "about": "За мен"
+  },
+  "homepage": "Начална страница",
   "Thumbnail": "Миниатюра",
   "Description": "Описание"
 }

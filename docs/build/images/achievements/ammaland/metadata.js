@@ -16,22 +16,22 @@ export default {
         },
         {
             filename: "Screenshot from 2023-03-30 13-46-52.png",
-            description: "This is a description for the image taken at 13:46:52.",
+            description: "Стаята на Моня",
             dateCreated: "2023-03-30"
         },
         {
             filename: "Screenshot from 2023-03-30 13-46-59.png",
-            description: "This is a description for the image taken at 13:46:59.",
+            description: "Гостна",
             dateCreated: "2023-03-30"
         },
         {
             filename: "Screenshot from 2023-03-30 13-47-08.png",
-            description: "This is a description for the image taken at 13:47:08.",
+            description: "Градина",
             dateCreated: "2023-03-30"
         },
         {
             filename: "Screenshot from 2023-03-30 13-47-14.png",
-            description: "This is a description for the image taken at 13:47:14.",
+            description: "Стая за четене",
             dateCreated: "2023-03-30"
         }
     ]

@@ -89,7 +89,7 @@ const AchievementsGallery: React.FC = () => {
 
     return (
         <div className="gallery">
-            <h2 className="gallery-title">{t('Achievements')}</h2>
+            <h2 className="gallery-title">{t('nav.achievements')}</h2>
             {imagesData.map((group: ImageData) =>
                 <div className="group">
                     <h3 className="group-name">{group.groupMetadata?.groupName}</h3>
