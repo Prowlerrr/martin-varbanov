@@ -1,5 +1,5 @@
 name: Build and Deploy
-on: 
+on:
   push:
     branches:
       - main
@@ -7,21 +7,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm install
-    
-    - name: Build App
-      run: npm run build
-      env:
-        REACT_APP_MV_FIREBASE_API_KEY: ${{ secrets.REACT_APP_MV_FIREBASE_API_KEY }}
-        REACT_APP_MV_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_MV_FIREBASE_AUTH_DOMAIN }}
-        REACT_APP_MV_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_MV_FIREBASE_PROJECT_ID }}
-        REACT_APP_MV_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_MV_FIREBASE_STORAGE_BUCKET }}
-        REACT_APP_MV_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_MV_FIREBASE_MESSAGING_SENDER_ID }}
-        REACT_APP_MV_FIREBASE_APP_ID: ${{ secrets.REACT_APP_MV_FIREBASE_APP_ID }}
-        REACT_APP_MV_FIREBASE_MEASUREMENT_ID: ${{ secrets.REACT_APP_MV_FIREBASE_MEASUREMENT_ID }}
+      - name: Install dependencies
+        run: npm ci
 
-    # add further steps for deploying your app here
+      - name: Build app
+        run: npm run build
+        env:
+          REACT_APP_MV_FIREBASE_API_KEY: ${{ secrets.REACT_APP_MV_FIREBASE_API_KEY }}
+          REACT_APP_MV_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_MV_FIREBASE_AUTH_DOMAIN }}
+          REACT_APP_MV_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_MV_FIREBASE_PROJECT_ID }}
+          REACT_APP_MV_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_MV_FIREBASE_STORAGE_BUCKET }}
+          REACT_APP_MV_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_MV_FIREBASE_MESSAGING_SENDER_ID }}
+          REACT_APP_MV_FIREBASE_APP_ID: ${{ secrets.REACT_APP_MV_FIREBASE_APP_ID }}
+          REACT_APP_MV_FIREBASE_MEASUREMENT_ID: ${{ secrets.REACT_APP_MV_FIREBASE_MEASUREMENT_ID }}
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: build
