@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { collection, addDoc, deleteDoc, onSnapshot, doc } from "firebase/firestore";
+import { firestore } from '../../firebase';
 
 // Define the structure of comment
 type Comment = {
-    id: number,
+    id: string,
     text: string
 }
 
@@ -14,11 +16,30 @@ const Comments = () => {
         setNewComment(event.target.value);
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const id = comments.length + 1;
-        setComments([...comments, {id: id, text: newComment}]);
-        setNewComment(""); // Reset input field after submit
+        const docRef = await addDoc(collection(firestore, "comments"), {
+            text: newComment
+        });
+        setNewComment("");
+        setComments([{id: docRef.id, text: newComment}, ...comments ]); // Firestore auto-generates id for every document, use it to reference your comments
+    };
+
+    useEffect(() => {
+        const unsub = onSnapshot(collection(firestore, "comments"), (snapshot) => {
+            let fetchedComments: Comment[] = [];
+            snapshot.forEach((doc) => {
+                fetchedComments.push({ id: doc.id, text: doc.data().text });
+            });
+            setComments(fetchedComments);
+        });
+
+        // Detach the listener on component unmount
+        return () => unsub();
+    }, []);
+
+    const handleDelete = async (id: string) => {
+        await deleteDoc(doc(firestore, "comments", id));
     };
 
     return (
@@ -35,7 +56,9 @@ const Comments = () => {
             </form>
             <div>
                 {comments.map(comment => (
-                    <p key={comment.id}>{comment.text}</p>
+                    <div key={comment.id}>
+                        <p>{comment.text} <button onClick={() => handleDelete(comment.id)}>Delete</button></p>
+                    </div>
                 ))}
             </div>
         </div>
