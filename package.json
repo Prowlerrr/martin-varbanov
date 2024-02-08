@@ -32,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "postbuild": "rm -rf docs/* && cp -r build/ docs"
+    "postbuild": "rm -rf docs/* && cp -r build/* docs"
   },
   "eslintConfig": {
     "extends": [

@@ -95,12 +95,6 @@ const AchievementsGallery: React.FC = () => {
                     <h3 className="group-name">{group.groupMetadata?.groupName}</h3>
                     <p className="group-description">{group.groupMetadata?.description}</p>
                     <table className="table">
-                        <thead>
-                        <tr>
-                            <th>{t('Thumbnail')}</th>
-                            <th>{t('Description')}</th>
-                        </tr>
-                        </thead>
                         <tbody>
                         {group.images.map((imageUrl: string) => {
                             let imageFileName = imageUrl.split("/").pop() || "";
