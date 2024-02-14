@@ -7,7 +7,10 @@
     "education": "Учене",
     "comments": "Коментари",
     "blog": "Блог",
-    "about": "Аз"
+    "about": "Аз",
+    "login": "Влез",
+    "logout": "Излез",
+    "signup": "Нов юзър"
   },
   "homepage": "Начална страница",
   "Thumbnail": "Миниатюра",

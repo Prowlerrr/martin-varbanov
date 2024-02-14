@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { collection, addDoc, deleteDoc, onSnapshot, doc } from 'firebase/firestore';
-import { firestore } from '../../firebase';
+import { firestore, auth } from '../../firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {AuthContext} from "../Login/AuthContext";
 
 type Comment = {
     id: string,
@@ -9,6 +10,7 @@ type Comment = {
 }
 
 const Comments = () => {
+    const {isLoggedIn} = useContext(AuthContext)
     const [comments, setComments] = useState<Comment[]>([]);
     const [newComment, setNewComment] = useState<string>("");
 
@@ -57,9 +59,10 @@ const Comments = () => {
                     <div key={comment.id} className="card mb-3">
                         <div className="card-body">
                             <p className="m-0">{comment.text}</p>
+                            {isLoggedIn &&
                             <button
                                 className="btn btn-danger mt-2"
-                                onClick={() => handleDelete(comment.id)}>Delete</button>
+                                onClick={() => handleDelete(comment.id)}>Delete</button>}
                         </div>
                     </div>
                 ))}
