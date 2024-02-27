@@ -83,7 +83,7 @@ const GroupSelection: React.FC<GroupSelectionProps> = ({onChange}) => {
             </Row>
             <Row>
                 <Button variant="primary" className="mt-2" onClick={handleGroupSelected}
-                        disabled={!selectedGroupName}>Избери</Button>
+                        disabled={!selectedGroupName}>Избери групата</Button>
             </Row>
         </div>
     );

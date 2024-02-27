@@ -1,9 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Button, Col, Dropdown, Form, Row} from "react-bootstrap";
+import React, {useState} from "react";
+import {Button, Col, Form, Row} from "react-bootstrap";
 import GroupSelection, {Group} from "./GroupSelection";
-import ImageUpload, {listSubDirectories, uploadFile} from "./ImageUpload";
-import {firestore, auth} from '../../firebase';
+import {uploadFile} from "./ImageUpload";
+import {firestore} from '../../firebase';
 import {addDoc, collection} from "firebase/firestore";
+import {doc, setDoc} from 'firebase/firestore';
 
 const NewAchievement: React.FC = () => {
     const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
@@ -16,7 +17,7 @@ const NewAchievement: React.FC = () => {
     const uploadImage = () => {
         if (imageUpload == null) return
         if (selectedGroup == null) return;
-        uploadFile("achievements" + "/" + selectedGroup, imageUpload)
+        uploadFile("achievements" + "/" + selectedGroup.name, imageUpload)
             .then(url => {
                     console.log('Download URL:', url)
                     return uploadMetadata(url)
@@ -31,6 +32,14 @@ const NewAchievement: React.FC = () => {
     const uploadMetadata = async (imageUrl: string | null) => {
         if (selectedGroup == null) return
         if (imageDescription == null) return
+
+        if (selectedGroup.isNew) {
+            const docRef = doc(firestore, 'images', 'achievements', selectedGroup.name, 'metadata');
+            await setDoc(docRef, {
+                name: selectedGroup.name,
+                description: selectedGroup.description
+            });
+        }
         const docRef = await addDoc(
             collection(firestore, 'images', 'achievements', selectedGroup.name),
             {
@@ -40,22 +49,26 @@ const NewAchievement: React.FC = () => {
         );
     }
 
+    // @ts-ignore
     return (
         <div>
-            {
-                selectedGroup
-                    ?
-                    <Button variant="primary"
-                            onClick={() => {
-                                setSelectedGroup(null);
-                            }}>
-                        {selectedGroup.name}
-                    </Button>
-                    :
-                    <GroupSelection
-                        onChange={setSelectedGroup}
-                    />
-            }
+            <Row>
+                {
+                    selectedGroup
+                        ?
+                        <Button variant="primary"
+                                onClick={() => {
+                                    setSelectedGroup(null);
+                                }}>
+                            {selectedGroup.name}
+                        </Button>
+                        :
+                        <GroupSelection
+                            onChange={setSelectedGroup}
+                        />
+                }
+            </Row>
+            <Row> <Col className="border-top my-3"></Col> </Row>
             <Row>
                 <Col sm="6">
                     <Form.Label>Избери картинка</Form.Label>
@@ -79,23 +92,23 @@ const NewAchievement: React.FC = () => {
             <Row>
                 <Col sm="6">
                     {
-                        imageUrl &&
-                        <img src={imageUrl} alt=""/>
+                        imageUrl
+                        &&
+                        <img src={imageUrl} alt="" className="img-fluid"/>
                     }
                 </Col>
                 <Col sm="6">
-                    <div>
+                    <Form.Group>
                         <Form.Label>Описание</Form.Label>
-                    </div>
-                    <div>
-                        <input
+                        <Form.Control
                             type="text"
                             value={imageDescription}
                             onChange={(e) => setImageDescription(e.target.value)}
                         />
-                    </div>
+                    </Form.Group>
                 </Col>
             </Row>
+            <Row> <Col className="border-top my-3"></Col> </Row>
             <Button variant="primary" className="mt-2" onClick={uploadImage}>Добави</Button>
         </div>
     )

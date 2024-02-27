@@ -33,12 +33,12 @@ const AddNewGroup: React.FC<AddNewGroupProps> = ({newGroupAdded}) => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Add New Group
+                Добави нова група
             </Button>
 
             <Modal show={show} onHide={handleClose} backdrop='static'>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add New Group</Modal.Title>
+                    <Modal.Title>Добави нова група</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
