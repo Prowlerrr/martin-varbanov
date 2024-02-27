@@ -23,9 +23,6 @@ const NewAchievement: React.FC = () => {
                     return uploadMetadata(url)
                 }
             )
-            .then((resultFromUploadMetadata) => {
-                console.log(resultFromUploadMetadata);
-            })
             .catch(error => console.error('Error uploading file:', error));
     }
 
@@ -69,47 +66,56 @@ const NewAchievement: React.FC = () => {
                 }
             </Row>
             <Row> <Col className="border-top my-3"></Col> </Row>
-            <Row>
-                <Col sm="6">
-                    <Form.Label>Избери картинка</Form.Label>
-                </Col>
-                <Col sm="6">
-                    <input
-                        type="file"
-                        onChange={(event) => {
-                            // @ts-ignore
-                            const f = event.target.files[0];
-                            if (f == null) return
-                            // @ts-ignore
-                            setImageUpload(f);
-                            // @ts-ignore
-                            setImageUrl(URL.createObjectURL(f));
-                        }}
-                        accept="image/png, image/jpg, image/jpeg"
-                    />
-                </Col>
-            </Row>
-            <Row>
-                <Col sm="6">
-                    {
-                        imageUrl
-                        &&
-                        <img src={imageUrl} alt="" className="img-fluid"/>
-                    }
-                </Col>
-                <Col sm="6">
-                    <Form.Group>
-                        <Form.Label>Описание</Form.Label>
-                        <Form.Control
-                            type="text"
-                            value={imageDescription}
-                            onChange={(e) => setImageDescription(e.target.value)}
-                        />
-                    </Form.Group>
-                </Col>
-            </Row>
-            <Row> <Col className="border-top my-3"></Col> </Row>
-            <Button variant="primary" className="mt-2" onClick={uploadImage}>Добави</Button>
+            {
+                selectedGroup
+                ?
+                <div>
+                    <Row>
+                        <Col sm="6">
+                            <Form.Label>Избери картинка</Form.Label>
+                        </Col>
+                        <Col sm="6">
+                            <input
+                                type="file"
+                                onChange={(event) => {
+                                    // @ts-ignore
+                                    const f = event.target.files[0];
+                                    if (f == null) return
+                                    // @ts-ignore
+                                    setImageUpload(f);
+                                    // @ts-ignore
+                                    setImageUrl(URL.createObjectURL(f));
+                                }}
+                                accept="image/png, image/jpg, image/jpeg"
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm="6">
+                            {
+                                imageUrl
+                                &&
+                                <img src={imageUrl} alt="" className="img-fluid"/>
+                            }
+                        </Col>
+                        <Col sm="6">
+                            <Form.Group>
+                                <Form.Label>Описание</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    value={imageDescription}
+                                    onChange={(e) => setImageDescription(e.target.value)}
+                                    required
+                                />
+                            </Form.Group>
+                        </Col>
+                        <Row> <Col className="border-top my-3"></Col> </Row>
+                        <Button variant="primary" className="mt-2" onClick={uploadImage} disabled={!imageDescription}>Добави</Button>
+                    </Row>
+                </div>
+                :
+                <Form.Label>... после избери картинка</Form.Label>
+            }
         </div>
     )
 }
