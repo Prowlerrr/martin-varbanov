@@ -2,6 +2,7 @@
   "nav": {
     "home": "Начало",
     "achievements": "Постижения",
+    "achievements.add": "Добави постижение",
     "artwork": "Галерия",
     "games": "Игри",
     "education": "Учене",
@@ -10,7 +11,8 @@
     "about": "Аз",
     "login": "Влез",
     "logout": "Излез",
-    "signup": "Нов юзър"
+    "signup": "Нов юзър",
+    "admin": "САМО МАРТИ"
   },
   "homepage": "Начална страница",
   "Thumbnail": "Миниатюра",

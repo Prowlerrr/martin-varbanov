@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "achievements": "Achievements",
+    "achievements.add": "Add achievement",
     "artwork": "Artwork",
     "games": "Games",
     "education": "Education",
@@ -10,7 +11,8 @@
     "about": "Me",
     "login": "Login",
     "logout": "Logout",
-    "signup": "Signup"
+    "signup": "Signup",
+    "admin": "ONLY MARTI"
   },
   "homepage": "Home Page",
   "Thumbnail": "Thumbnail",

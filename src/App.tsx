@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
-import {Container, Nav, Navbar} from 'react-bootstrap';
+import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
 import ArtworkShowcase from "./components/ArtworkShowcase/ArtworkShowcase";
 import AchievementGallery from "./components/AchievementsGallery/AchievementGallery";
 import Blog from "./components/Blog/Blog";
@@ -14,6 +14,7 @@ import {useTranslation} from 'react-i18next';
 import {AuthContext} from "./components/Login/AuthContext";
 import AuthButton from "./components/Login/AuthButton";
 import {useState} from "react";
+import NewAchievement from "./components/AchievementsGallery/NewAchievement";
 
 const App = () => {
     const {t} = useTranslation();
@@ -35,8 +36,14 @@ const App = () => {
                             <Nav.Link as={Link} to="/about" className="mx-3">{t('nav.about')}</Nav.Link>
                             {
                                 isLoggedIn &&
-                                <Nav.Link as={Link} to="/signup" className="mx-3">{t('nav.signup')}</Nav.Link>
+                                <div>
+                                    <NavDropdown title={t('nav.admin')} id="basic-nav-dropdown">
+                                        <NavDropdown.Item as={Link} to="/achievements/add" className="mx-3">{t('nav.achievements.add')}</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/signup" className="mx-3">{t('nav.signup')}</NavDropdown.Item>
+                                    </NavDropdown>
+                                </div>
                             }
+
                             <Nav.Link className="mx-3">
                                 <AuthButton/>
                             </Nav.Link>
@@ -47,6 +54,7 @@ const App = () => {
                         <Routes>
                             <Route path='/' element={<h1>{t('homepage')}</h1>}/>
                             <Route path='/achievements' element={<AchievementGallery/>}/>
+                            <Route path='/achievements/add' element={<NewAchievement/>}/>
                             <Route path='/artwork' element={<ArtworkShowcase/>}/>
                             <Route path='/games' element={<Games/>}/>
                             <Route path='/education' element={<EducationCorner/>}/>

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://prowlerrr.github.io/martin-varbanov/",
   "dependencies": {
+    "@react-buddy/ide-toolbox": "^2.4.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,6 +13,7 @@
     "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.18",
     "@types/react-image-gallery": "^1.2.4",
+    "@types/uuid": "^9.0.8",
     "bootstrap": "^5.3.2",
     "firebase": "^10.8.0",
     "i18next": "^23.8.2",
@@ -25,8 +27,8 @@
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "@react-buddy/ide-toolbox": "^2.4.0"
+    "uuid": "^9.0.1",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "DISABLE_ESLINT_PLUGIN=true react-scripts start",
